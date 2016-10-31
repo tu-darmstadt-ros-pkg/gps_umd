@@ -2,8 +2,8 @@
 Changelog for package gpsd_client
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.8 (2016-10-31)
+------------------
 * Use pre-processor defines to handle different libgps API versions
   Fixes `#1 <https://github.com/swri-robotics/gps_umd/issues/1>`_
 * Contributors: P. J. Reed
