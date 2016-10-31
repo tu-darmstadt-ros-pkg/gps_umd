@@ -5,9 +5,9 @@ project(gpsd_client CXX)
 ## Catkin ##
 ############
 
-find_package(catkin REQUIRED
-  roscpp
+find_package(catkin REQUIRED COMPONENTS
   gps_common
+  roscpp
   sensor_msgs
 )
 
