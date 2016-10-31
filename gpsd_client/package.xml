@@ -6,6 +6,7 @@
    using the NavSatFix message</description>
 
   <maintainer email="timo.roehling@fkie.fraunhofer.de">Timo Roehling</maintainer>
+  <maintainer email="preed@swri.org">P. J. Reed</maintainer>
   <author email="ken@tossell.net">Ken Tossell</author>
   <author email="rob@umd.edu">Rob Thomson</author>
 
