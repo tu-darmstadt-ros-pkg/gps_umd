@@ -1,6 +1,6 @@
 <launch>
 
-  <!-------------------------------------------------------
+<!--
     fix_translator translates to and from NatSatFix 
     and GPSFix messages.
 
@@ -12,7 +12,7 @@
     lines.
 
     Only adjust topic names after "to=" in each remap line.
-    ---------------------------------------------------//-->
+-->
 
   <node name="fix_translator" pkg="gps_common" type="fix_translator">
     <!-- Translate from NavSatFix to GPSFix //-->
