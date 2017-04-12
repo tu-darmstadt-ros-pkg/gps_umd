@@ -14,7 +14,7 @@
     Only adjust topic names after "to=" in each remap line.
     ---------------------------------------------------//-->
 
-  <node name="fix_translator" pkg="gps_common" type="fix_translator.py">
+  <node name="fix_translator" pkg="gps_common" type="fix_translator">
     <!-- Translate from NavSatFix to GPSFix //-->
       <remap from="/navsat_fix_in"  to="/fix"/>       
       <remap from="/gps_fix_out"    to="/gps_fix"/>
