@@ -15,23 +15,23 @@ The node `fix_translator` converts [sensor_msgs/NavSatFix](http://docs.ros.org/a
 
 ### Translate from NavSatFix to GPSFix
 
-<pre>
+```xml
   <node name="fix_translator" pkg="gps_common" type="fix_translator">
     <!-- Translate from NavSatFix to GPSFix //-->
       <remap from="/navsat_fix_in"  to="/YOUR_NAVSATFIX_TOPIC"/>
       <remap from="/gps_fix_out"    to="/YOUR_GPSFIX_TOPIC"/>
   </node>
-</pre>
+```
 
 
 ### Translate from GPSFix to NavSatFix
 
-<pre>
+```xml
   <node name="fix_translator" pkg="gps_common" type="fix_translator">
     <!-- Translate from GPSFix to NavSatFix //-->
        <remap from="/gps_fix_in"     to="/YOUR_GPSFIX_TOPIC"/>
        <remap from="/navsat_fix_out" to="/YOUR_NAVSATFIX_TOPIC"/>
   </node>
-</pre>
+```
 
 Only adjust the topic names after "to=" in each remap line.
