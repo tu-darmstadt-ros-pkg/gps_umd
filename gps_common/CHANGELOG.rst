@@ -2,6 +2,11 @@
 Changelog for package gps_common
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* removed unused variables
+* Contributors: Frank Hoeller
+
 0.1.8 (2016-10-31)
 ------------------
 * Fixing orientation in UTM odometry message
