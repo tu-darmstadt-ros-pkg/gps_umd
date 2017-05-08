@@ -2,8 +2,8 @@
 Changelog for package gps_common
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.1.9 (2017-05-08)
+------------------
 * removed unused variables
 * Contributors: Frank Hoeller
 
