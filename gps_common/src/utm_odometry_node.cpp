@@ -36,9 +36,9 @@ void callback(const sensor_msgs::NavSatFixConstPtr& fix) {
     odom.header.stamp = fix->header.stamp;
 
     if (frame_id.empty())
-      odom.header.frame_id = fix->header.frame_id;
+      odom.header.frame_id = fix->header.frame_id + "/utm_" + zone;
     else
-      odom.header.frame_id = frame_id;
+      odom.header.frame_id = frame_id + "/utm_" + zone;
 
     odom.child_frame_id = child_frame_id;
 
