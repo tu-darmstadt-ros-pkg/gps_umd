@@ -1,5 +1,7 @@
 /*
- * Translates nav_msgs/Odometry into sensor_msgs/NavSat{Fix,Status}
+ * Translates nav_msgs/Odometry in UTM coordinates back into sensor_msgs/NavSat{Fix,Status}
+ * Useful for visualizing UTM data on a map or comparing with raw GPS data
+ * Added by Dheera Venkatraman (dheera@dheera.net)
  */
 
 #include <ros/ros.h>
@@ -49,6 +51,19 @@ void callback(const nav_msgs::OdometryConstPtr& odom) {
 
   fix.latitude = latitude;
   fix.longitude = longitude; 
+  fix.altitude = odom->pose.pose.position.z;
+
+  fix.position_covariance[0] = odom->pose.covariance[0];
+  fix.position_covariance[1] = odom->pose.covariance[1];
+  fix.position_covariance[2] = odom->pose.covariance[2];
+  fix.position_covariance[3] = odom->pose.covariance[6];
+  fix.position_covariance[4] = odom->pose.covariance[7];
+  fix.position_covariance[5] = odom->pose.covariance[8];
+  fix.position_covariance[6] = odom->pose.covariance[12];
+  fix.position_covariance[7] = odom->pose.covariance[13];
+  fix.position_covariance[8] = odom->pose.covariance[14];
+  
+  fix.status.status = sensor_msgs::NavSatStatus::STATUS_FIX;
 
   fix_pub.publish(fix);
 }
@@ -60,7 +75,7 @@ int main (int argc, char **argv) {
 
   priv_node.param<std::string>("frame_id", frame_id, "");
 
-  fix_pub = node.advertise<sensor_msgs::NavSatFix>("fix", 10);
+  fix_pub = node.advertise<sensor_msgs::NavSatFix>("reverse_fix", 10);
 
   ros::Subscriber odom_sub = node.subscribe("odom", 10, callback);
 
