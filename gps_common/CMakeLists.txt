@@ -11,6 +11,7 @@ set(DEPS
   roscpp
   sensor_msgs
   std_msgs
+  rospy
 )
 
 find_package(catkin REQUIRED COMPONENTS
@@ -72,3 +73,6 @@ install(TARGETS ${PROJECT_NAME}/utm_odometry_node
 install(DIRECTORY include/${PROJECT_NAME}/ 
   DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
 )
+
+catkin_install_python(PROGRAMS nodes/fix_translator
+                      DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
