@@ -16,6 +16,7 @@ using namespace gps_common;
 
 static ros::Publisher fix_pub;
 std::string frame_id, child_frame_id;
+std::string zone_param;
 double rot_cov;
 
 void callback(const nav_msgs::OdometryConstPtr& odom) {
@@ -30,21 +31,28 @@ void callback(const nav_msgs::OdometryConstPtr& odom) {
 
   double northing, easting, latitude, longitude;
   std::string zone;
+  sensor_msgs::NavSatFix fix;
 
   northing = odom->pose.pose.position.y;
   easting = odom->pose.pose.position.x;
 
-  std::size_t pos = odom->header.frame_id.find("/utm_");
-  if(pos==std::string::npos) {
-    ROS_WARN("UTM zone not found in frame_id");
-    return;
+  if(zone_param.length() > 0) {
+    // utm zone was supplied as a ROS parameter
+    zone = zone_param;
+    fix.header.frame_id = odom->header.frame_id;
+  } else {
+    // look for the utm zone in the frame_id
+    std::size_t pos = odom->header.frame_id.find("/utm_");
+    if(pos==std::string::npos) {
+      ROS_WARN("UTM zone not found in frame_id");
+      return;
+    }
+    zone = odom->header.frame_id.substr(pos + 5, 3);
+    fix.header.frame_id = odom->header.frame_id.substr(0, pos);
   }
-  zone = odom->header.frame_id.substr(pos + 5, 3);
 
-  ROS_INFO("%s", zone.c_str());
+  ROS_INFO("zone: %s", zone.c_str());
 
-  sensor_msgs::NavSatFix fix;
-  fix.header.frame_id = odom->header.frame_id.substr(0, pos);
   fix.header.stamp = odom->header.stamp;
 
   UTMtoLL(northing, easting, zone, latitude, longitude);
@@ -69,13 +77,14 @@ void callback(const nav_msgs::OdometryConstPtr& odom) {
 }
 
 int main (int argc, char **argv) {
-  ros::init(argc, argv, "reverse_utm_odometry_node");
+  ros::init(argc, argv, "utm_odometry_to_navsatfix_node");
   ros::NodeHandle node;
   ros::NodeHandle priv_node("~");
 
   priv_node.param<std::string>("frame_id", frame_id, "");
+  priv_node.param<std::string>("zone", zone_param, "");
 
-  fix_pub = node.advertise<sensor_msgs::NavSatFix>("reverse_fix", 10);
+  fix_pub = node.advertise<sensor_msgs::NavSatFix>("odom_fix", 10);
 
   ros::Subscriber odom_sub = node.subscribe("odom", 10, callback);
 
