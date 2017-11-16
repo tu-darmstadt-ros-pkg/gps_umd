@@ -5,6 +5,8 @@
 #include <sensor_msgs/NavSatStatus.h>
 #include <libgpsmm.h>
 
+#include <cmath>
+
 using namespace gps_common;
 using namespace sensor_msgs;
 
@@ -141,7 +143,7 @@ class GPSDClient {
 #endif
       }
 
-      if ((p->status & STATUS_FIX) && !(check_fix_by_variance && isnan(p->fix.epx))) {
+      if ((p->status & STATUS_FIX) && !(check_fix_by_variance && std::isnan(p->fix.epx))) {
         status.status = 0; // FIXME: gpsmm puts its constants in the global
                            // namespace, so `GPSStatus::STATUS_FIX' is illegal.
 
@@ -195,7 +197,7 @@ class GPSDClient {
 
       /* TODO: Support SBAS and other GBAS. */
 
-      if (use_gps_time && !isnan(p->fix.time))
+      if (use_gps_time && !std::isnan(p->fix.time))
         fix->header.stamp = ros::Time(p->fix.time);
       else
         fix->header.stamp = ros::Time::now();
@@ -231,7 +233,7 @@ class GPSDClient {
        * as long as there has been a fix previously. Throw out these
        * fake results, which have NaN variance
        */
-      if (isnan(p->fix.epx) && check_fix_by_variance) {
+      if (std::isnan(p->fix.epx) && check_fix_by_variance) {
         return;
       }
 
