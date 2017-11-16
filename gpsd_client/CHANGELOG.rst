@@ -2,8 +2,8 @@
 Changelog for package gpsd_client
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.2.0 (2017-11-16)
+------------------
 * Add include for <cmath> in gpsd_client
 * Add parameter to set frame_id.
 * Contributors: Kris Kozak, P. J. Reed

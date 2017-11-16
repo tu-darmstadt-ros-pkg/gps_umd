@@ -2,8 +2,8 @@
 Changelog for package gps_common
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.2.0 (2017-11-16)
+------------------
 * fix xml comments
 * add install instructions and documentation
 * add node for translating between NavSatFix and GPSFix
