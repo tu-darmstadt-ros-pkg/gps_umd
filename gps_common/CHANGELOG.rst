@@ -2,6 +2,13 @@
 Changelog for package gps_common
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* fix xml comments
+* add install instructions and documentation
+* add node for translating between NavSatFix and GPSFix
+* Contributors: Andre Volk, P. J. Reed
+
 0.1.9 (2017-05-08)
 ------------------
 * removed unused variables
