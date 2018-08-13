@@ -18,7 +18,7 @@ double rot_cov;
 
 void callback(const sensor_msgs::NavSatFixConstPtr& fix) {
   if (fix->status.status == sensor_msgs::NavSatStatus::STATUS_NO_FIX) {
-    ROS_INFO("No fix.");
+    ROS_DEBUG_THROTTLE(60,"No fix.");
     return;
   }
 
