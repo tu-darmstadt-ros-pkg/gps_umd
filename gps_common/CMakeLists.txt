@@ -46,6 +46,8 @@ catkin_package(
     ${DEPS}
 )
 
+catkin_python_setup()
+
 ###########
 ## Build ##
 ###########
@@ -74,5 +76,5 @@ install(DIRECTORY include/${PROJECT_NAME}/
   DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
 )
 
-catkin_install_python(PROGRAMS nodes/fix_translator
+catkin_install_python(PROGRAMS nodes/fix_translator scripts/bag_converter
                       DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
