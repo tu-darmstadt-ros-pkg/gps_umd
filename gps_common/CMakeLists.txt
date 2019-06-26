@@ -19,6 +19,8 @@ find_package(catkin REQUIRED COMPONENTS
   ${DEPS}
 )
 
+catkin_python_setup()
+
 #######################################
 ## Declare ROS messages and services ##
 #######################################
@@ -45,8 +47,6 @@ catkin_package(
     message_runtime
     ${DEPS}
 )
-
-catkin_python_setup()
 
 ###########
 ## Build ##
