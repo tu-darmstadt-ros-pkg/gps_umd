@@ -2,8 +2,8 @@
 Changelog for package gps_common
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.3.0 (2019-10-03)
+------------------
 * Switching order of commands to make catkin happy
 * Initial attempt at creating an offline bag converter
 * Changing ROS_INFO to ROS_DEBUG_THROTTLE as per `#15 <https://github.com/pjreed/gps_umd/issues/15>`_
