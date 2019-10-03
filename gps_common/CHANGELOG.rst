@@ -2,6 +2,16 @@
 Changelog for package gps_common
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Switching order of commands to make catkin happy
+* Initial attempt at creating an offline bag converter
+* Changing ROS_INFO to ROS_DEBUG_THROTTLE as per `#15 <https://github.com/pjreed/gps_umd/issues/15>`_
+* Update node name; make appending zone optional; add param for adding zone when going back to navsatfix
+* Fix altitude, covariance
+* Add reverse_utm_odometry_node
+* Contributors: David Anthony, Dheera Venkatraman, P. J. Reed, Tim Clephas, Vikrant Shah, dheera
+
 0.2.0 (2017-11-16)
 ------------------
 * fix xml comments
