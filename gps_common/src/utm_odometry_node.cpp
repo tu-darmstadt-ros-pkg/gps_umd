@@ -15,6 +15,7 @@ using namespace gps_common;
 static ros::Publisher odom_pub;
 std::string frame_id, child_frame_id;
 double rot_cov;
+bool append_zone = false;
 
 void callback(const sensor_msgs::NavSatFixConstPtr& fix) {
   if (fix->status.status == sensor_msgs::NavSatStatus::STATUS_NO_FIX) {
@@ -35,10 +36,19 @@ void callback(const sensor_msgs::NavSatFixConstPtr& fix) {
     nav_msgs::Odometry odom;
     odom.header.stamp = fix->header.stamp;
 
-    if (frame_id.empty())
-      odom.header.frame_id = fix->header.frame_id;
-    else
-      odom.header.frame_id = frame_id;
+    if (frame_id.empty()) {
+      if(append_zone) {
+        odom.header.frame_id = fix->header.frame_id + "/utm_" + zone;
+      } else {
+        odom.header.frame_id = fix->header.frame_id;
+      }
+    } else {
+      if(append_zone) {
+        odom.header.frame_id = frame_id + "/utm_" + zone;
+      } else {
+        odom.header.frame_id = frame_id;
+      }
+    }
 
     odom.child_frame_id = child_frame_id;
 
@@ -84,6 +94,7 @@ int main (int argc, char **argv) {
   priv_node.param<std::string>("frame_id", frame_id, "");
   priv_node.param<std::string>("child_frame_id", child_frame_id, "");
   priv_node.param<double>("rot_covariance", rot_cov, 99999.0);
+  priv_node.param<bool>("append_zone", append_zone, false);
 
   odom_pub = node.advertise<nav_msgs::Odometry>("odom", 10);
 
