@@ -2,6 +2,11 @@
 Changelog for package gpsd_client
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Support ROS2 (`#24 <https://github.com/pjreed/gps_umd/issues/24>`_)
+* Contributors: P. J. Reed
+
 0.3.0 (2019-10-03)
 ------------------
 

@@ -1,6 +1,11 @@
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Changelog for package gps_common
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Changelog for package gps_msgs
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Forthcoming
+-----------
+* Support ROS2 (`#24 <https://github.com/pjreed/gps_umd/issues/24>`_)
+* Contributors: P. J. Reed
 
 0.3.0 (2019-10-03)
 ------------------
