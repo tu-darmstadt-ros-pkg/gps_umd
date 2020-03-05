@@ -2,6 +2,9 @@
 Changelog for package gps_common
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 0.3.0 (2019-10-03)
 ------------------
 * Switching order of commands to make catkin happy
