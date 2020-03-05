@@ -2,6 +2,9 @@
 Changelog for package gps_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 1.0.0 (2019-10-04)
 ------------------
 * Support ROS2 (`#24 <https://github.com/pjreed/gps_umd/issues/24>`_)
