@@ -2,6 +2,9 @@
 Changelog for package gps_tools
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 1.0.3 (2020-06-10)
 ------------------
 * Foxy support (`#29 <https://github.com/swri-robotics/gps_umd/issues/29>`_)
