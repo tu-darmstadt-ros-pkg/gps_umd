@@ -18,12 +18,13 @@ double rot_cov;
 bool append_zone = false;
 
 void callback(const sensor_msgs::NavSatFixConstPtr& fix) {
-  if (fix->status.status == sensor_msgs::NavSatStatus::STATUS_NO_FIX) {
-    ROS_DEBUG_THROTTLE(60,"No fix.");
-    return;
-  }
+  // if (fix->status.status == sensor_msgs::NavSatStatus::STATUS_NO_FIX) {
+  //   ROS_DEBUG_THROTTLE(60,"No fix.");
+  //   return;
+  // }
 
   if (fix->header.stamp == ros::Time(0)) {
+    ROS_INFO("invalid header stamp");
     return;
   }
 
